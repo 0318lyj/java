@@ -1,10 +1,9 @@
-// 친구정보관리 앱 v.1
-// 이름,연락처,성별(남/여) => 예)홍길동,010-1234-2345,남
-// 1.목록 (이름,연락처,성별) 2. 등록 3.조회(성별) 4삭제(이름) 9.종료
-//String[] friendAry 크기는 100개;
+package com.yedam.reference;
+
+
 import java.util.Scanner;
 
-public class Todo2 {
+public class ReferenceExe2 {
 	
 	public static void main(String[] args) {
 		boolean run = true;
@@ -120,4 +119,5 @@ public class Todo2 {
 		}
 		
 	}
-}
+
+
