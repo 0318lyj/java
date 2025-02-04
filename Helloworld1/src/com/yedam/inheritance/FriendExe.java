@@ -18,10 +18,19 @@ public class FriendExe {
 	}
 	
 	Friend[] friends = new Friend[100]; // 저장공간
+	//초기데이터
+	public void init() {
+		friends[0] = new Friend("홍길동", "010-1111-2222");
+		friends[1] = new UnivFriend("김민식", "010-3333-2222", "우리대학교", "복지학과");
+		friends[2] = new ComFriend("홍길동", "010-4444-2222", "인포젠", "약물");
+	}
+	
 	Scanner scn = new Scanner(System.in);
 	
 	// 시작메소드
 	public void run() {
+		init();
+		
 		boolean run = true;
 		
 		System.out.println("1.친구목록 2.등록 3.수정 4.삭제 9.종료");
@@ -67,9 +76,10 @@ public class FriendExe {
 	//학교: 친구 + 학교명, 전공
 	//회사: 친구 + 회사명, 부서
 	void addFriend() {
-		System.out.println("1.친구 2.학교친구 3.회사친구");
+		System.out.println("1.친구 2.학교친구 3.회사친구 4.종료");
 		System.out.println("선택>>> ");
 		int choice = scn.nextInt();
+		scn.nextLine();
 		
 		//이름,연락처
 		System.out.print("이름입력>> ");
