@@ -1,9 +1,10 @@
 package com.yedam.reference;
 
-
 import java.util.Scanner;
 
-//실행을 하기위한 클래스
+/*
+ * main 담고 있는 실행클래스
+ */
 public class StudentExe {
 	public static void main(String[] args) {
 		Student[] students = new Student[5];
@@ -11,17 +12,21 @@ public class StudentExe {
 		Student std1 = new Student(); //인스턴스 생성.
 		std1.studentName = "홍길동";
 		std1.engScore = 80;
-		std1.mathScore = 85;
+		std1.gender = Gender.MEN;
 		
 		Student std2 = new Student();
 		std2.studentName = "김민수";
-		std1.engScore = 85;
-		std1.mathScore = 88;
+		std2.engScore = 85;
+		std2.mathScore = 88;
+		std2.gender = Gender.MEN;
 		
+		
+		//홍정학, 75, 90
 		Student std3 = new Student();
 		std3.studentName = "홍정학";
 		std3.engScore = 75;
 		std3.mathScore = 90;
+		std3.gender = Gender.WOMEN;
 		
 		students[0] = std1;
 		students[1] = std2;
@@ -43,10 +48,11 @@ public class StudentExe {
 		
 		for (int i = 0; i < students.length; i++ ) {
 			if (students[i] !=null
-					&& students[i].studentName.equals(studName)) {
-				
-				System.out.printf("학생의 평균은 %.2입니다.\n", 
-						students[i].getAverage());
+				// && students[i].studentName.equals(studName)) {
+				&& students[i].gender == Gender.MEN) {
+				students[i].printInfo();
+//				System.out.printf("학생의 평균은 %.2입니다.\n", 
+//						students[i].getAverage());
 			}
 		}
 		
