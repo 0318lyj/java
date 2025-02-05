@@ -4,6 +4,7 @@ package com.yedam.inheritance;
  * Friend 상속하는 ComFriend.
  * 회사명, 부서정보
  */
+
 public class ComFriend extends Friend{
 	//필드
 	private String companyName;
