@@ -1,5 +1,7 @@
 package com.yedam.interfaces.emp;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,12 +32,28 @@ public class EmpListExe implements EmpDAO {
 
 	@Override
 	public boolean modifyEmp(Employee emp) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				
 		for (int i = 0; i < empList.size(); i++) {
 			// 사원번호 비교.
 			if (empList.get(i).getEmpNo() == emp.getEmpNo()) {
-				empList.get(i).setTelNo(emp.getTelNo());
-				empList.get(i).setHireDate(emp.getHireDate());
-				empList.get(i).setSalary(emp.getSalary());
+				// 연락처값이 ""(공백)이 아닐때 변경
+				if(!emp.getTelNo().equals("")) {
+					empList.get(i).setTelNo(emp.getTelNo());
+				}
+				try {
+					//값을 변경 안하려고 엔터("")
+				
+					if (emp.getHireDate().equals(sdf.parse("1900-01-01"))) {
+						empList.get(i).setHireDate(emp.getHireDate());	
+					}
+				} catch(ParseException e) {
+					e.printStackTrace();
+				}
+				//급여변경을 안할려고 엔터만 입력했을때는 변경안함
+				 if(emp.getSalary()!=0) {
+					empList.get(i).setSalary(emp.getSalary());					
+				}
 				return true; // 정상수정.
 			}
 		}
@@ -48,6 +66,7 @@ public class EmpListExe implements EmpDAO {
 			if(empList.get(i).getEmpNo() == empNo) {
 				empList.remove(i); //삭제 
 				return true;
+				
 			}
 		}
 		return false;
@@ -57,16 +76,25 @@ public class EmpListExe implements EmpDAO {
 	public Employee[] search(Employee emp) { // sal 보다 급여가 많은...
 		Employee[] result = new Employee[10];
 		int idx = 0;
+//		int salary = emp.getSalary(); //salary 필드
+		String name = emp.getEmpName();
 		
 		for(int i =0; i < empList.size(); i++) {
-			if(empList.get(i).getSalary() >= emp.getSalary()) {
+			//indexOf 사용
+			if(empList.get(i).getEmpName().indexOf(name) > -1) {
 				result[idx] = empList.get(i);
 				idx++; // 0부터 1씩 증가되도록 
 			}
-		}
-		
+			
+// 			if(empList.get(i).getEmpName().indexOf(emp.getEmpName()) > -1 ) {
+//				result[idx] = empList.get(i);
+//				idx++; // 0부터 1씩 증가되도록 
+//			}
+		}	
 		
 		return result;
 	}
-
 }
+
+
+

@@ -1,5 +1,7 @@
 package com.yedam.interfaces.emp;
 
+//사원의 정보를 관리하는 데이터 모델로 사용된다
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,6 +13,7 @@ import java.util.Date;
  * 입사일자(2020-02-04)
  * 급여(300, 350)
  */
+
 public class Employee {
 	private int empNo;
 	private String empName;

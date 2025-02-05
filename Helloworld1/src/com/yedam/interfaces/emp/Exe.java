@@ -13,6 +13,10 @@ import com.yedam.reference.Student;
  */
 public class Exe {
 	public static void main(String[] args) {
+		System.out.println("홍길동".indexOf("호")); // -1보다 큰값
+		
+		
+		
 		// 학생정보를 저장하는 컬렉션(ArrayList) 선언.
 		// 3명 추가.
 		List<Student> students = new ArrayList<Student>();

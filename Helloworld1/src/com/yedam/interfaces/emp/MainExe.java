@@ -11,6 +11,10 @@ import java.util.Scanner;
 public class MainExe {
 
 	public static void main(String[] args) {
+		
+		
+		
+		
 		// 스캐너, run,
 		Scanner scn = new Scanner(System.in);
 		boolean run = true;
@@ -46,8 +50,17 @@ public class MainExe {
 				tel = scn.nextLine();
 				System.out.print("입사일자>> ");
 				String hdate = scn.nextLine();
+				if(hdate.equals("")) {
+					hdate = "1900-01-01"; // 엔터치고 넘어가면 ..
+				}
+				
 				System.out.print("급여>> ");
-				int sal = Integer.parseInt(scn.nextLine());
+				String salString = scn.nextLine();
+				if(salString.equals("")) { //엔터치고 넘어가면.. 0 인식
+					salString = "0";
+				}
+				
+				int sal = Integer.parseInt(salString); 
 
 				if (dao.modifyEmp(new Employee(empNo, "", tel, hdate, sal))) {
 					System.out.println("수정완료");
@@ -64,11 +77,15 @@ public class MainExe {
 				
 			case 4: //목록 
 				//조회조건(급여 이상)
-				System.out.print("조회 급여조건 >> ");
-				sal = Integer.parseInt(scn.nextLine());
+//				System.out.print("조회 급여조건 >> ");
+//				sal = Integer.parseInt(scn.nextLine());
+				System.out.print("조회 이름조건 >> ");
+				eName = scn.nextLine();
 				
 				Employee emp = new Employee();
-				emp.setSalary(sal);
+				emp.setEmpName(eName); // empName 필드 저장.
+				
+//				emp.setSalary(sal); //salary 필드: 저장
 				
 				
 				// 조회결과
