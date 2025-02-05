@@ -1,4 +1,5 @@
 package com.yedam.reference;
+
 /*
  * 아이디, 비밀번호, 이름.
  */
@@ -39,4 +40,5 @@ public class Member {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
+
 }

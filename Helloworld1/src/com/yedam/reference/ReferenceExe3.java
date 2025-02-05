@@ -1,37 +1,42 @@
 package com.yedam.reference;
 
+import java.util.Scanner;
+
 public class ReferenceExe3 {
-	
 	public static void main(String[] args) {
-		String[][] scores = {{"홍길동", "80"},{"김민수", "85"},{"심상현", "88"},{"최기동", "90"},{"박헌수", "75"}};
-		
-		int sum = 0;
-		String[] temp = {"","0"};
-		int max = 0;
-		
-		for (int i =0; i < scores.length; i++) {
-			System.out.println("점수 => " + scores[i][1]);
-			
-			sum = sum + Integer.parseInt(scores[i][1]);
-//			if (Integer.parseInt(temp[1]) 
-//					< Integer.parseInt(scores[i][1])) {
-//				temp = scores[i];
-//			}
-		
-		}	
-		
-		for (int i = 0; i < scores.length; i++) {
-			if (max < Integer.parseInt(scores[i][1])) {
-				max = Integer.parseInt(scores[i][1]);
+		exe();
+	} // end of main.
+
+	public static void exe() {
+		Scanner scn = new Scanner(System.in);
+		// 이름, 연락처, 성별 => 100개 공간.
+		String[][] friends = new String[100][3];
+		friends[0][0] = "홍길동";
+		friends[0][1] = "010-1111-2222";
+		friends[0][2] = "남";
+		friends[1] = new String[] { "김민수", "010-1212-2323", "남" };
+
+		System.out.println("이름을 입력>>");
+		String name = scn.nextLine();
+		System.out.println("연락처를 입력>>");
+		String phone = scn.nextLine();
+		System.out.println("성별을 입력>>");
+		String gender = scn.nextLine();
+
+		friends[2][0] = name;
+		friends[2][1] = phone;
+		friends[2][2] = gender;
+
+		friends[2] = new String[] { name, phone, gender };
+
+//		friends[5]={null,null,null};
+
+		for (int i = 0; i < friends.length; i++) {
+			if (friends[i] != null && friends[i][0] != null) {
+				System.out.printf("이름은 %s, 연락처는 %s\n"//
+						, friends[i][0], friends[i][1]);
 			}
 		}
-		
-		System.out.println("최고점수 학생" + max);
-		System.out.printf("sum의 값은 %d\n", sum);
-		
-		
-		
+
 	}
 }
-
-
