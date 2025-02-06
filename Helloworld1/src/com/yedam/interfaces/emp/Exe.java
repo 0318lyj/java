@@ -13,7 +13,7 @@ import com.yedam.reference.Student;
  */
 public class Exe {
 	public static void main(String[] args) {
-		System.out.println("홍길동".indexOf("호")); // -1보다 큰값
+		System.out.println("홍길동".indexOf("호")); // -1보다 큰값.
 		
 		
 		

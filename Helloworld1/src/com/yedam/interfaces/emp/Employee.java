@@ -1,7 +1,5 @@
 package com.yedam.interfaces.emp;
 
-//사원의 정보를 관리하는 데이터 모델로 사용된다
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,7 +11,6 @@ import java.util.Date;
  * 입사일자(2020-02-04)
  * 급여(300, 350)
  */
-
 public class Employee {
 	private int empNo;
 	private String empName;
@@ -33,7 +30,8 @@ public class Employee {
 		this.salary = 250;
 	}
 
-	public Employee(int empNo, String empName, String telNo, String hireDate, int salary) {
+	public Employee(int empNo, String empName, String telNo//
+			, String hireDate, int salary) {
 		this(empNo, empName, telNo);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -43,14 +41,13 @@ public class Employee {
 		}
 		this.salary = salary;
 	}
-	
-	
-	//사번, 이름, 연락처, 급여
+
+	// 사번, 이름, 연락처, 급여.
 	public String empInfo() {
-		// 사번     이름      연락처     급여
-		//-------------------------------
-		//1001     홍길동   234-1234   250
-		return empNo + " " + empName +  "  " +telNo+ " " + salary;
+		// 사번 이 름 연락처 급여
+		// -----------------------
+		// 1001 홍길동 234-1234 250
+		return empNo + " " + empName + "  " + telNo + " " + salary;
 	}
 
 	// getter, setter
